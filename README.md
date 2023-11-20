@@ -1,16 +1,15 @@
-# flutter_app
+# Turismo no RN
 
-A new Flutter project.
+Um projeto para mostrar as praias do Estado do Rio Grande do Norte, onde o usuário, poderá ver imagens e informações do local.
 
-## Getting Started
+## Iniciando
 
-This project is a starting point for a Flutter application.
+Basta fazer o clone do repositório e simular a aplicação em um emulador Android ou IOS;
 
-A few resources to get you started if this is your first Flutter project:
+## Futuras features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Sistema de Login para marcar locais visitados;
+- Possibilitar interações com avaliação das praias pelos usuários;
+- Implementar um sistema de compra e venda de passeios;
+---
+Todos os direitos reservados - Jonathan Samael - 2023;
