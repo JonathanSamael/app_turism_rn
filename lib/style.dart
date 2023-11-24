@@ -14,11 +14,11 @@ const appBarTextStyle = TextStyle(
 );
 
 const primaryTitleStyle = TextStyle(
-  fontFamily: fontNameDefault,
-  fontWeight: FontWeight.w700,
-  fontSize: largeTextSize,
-  color: Colors.white,
-);
+    fontFamily: fontNameDefault,
+    fontWeight: FontWeight.w700,
+    fontSize: largeTextSize,
+    color: Colors.white,
+    letterSpacing: 3.0);
 
 const titleTextStyle = TextStyle(
   fontFamily: fontNameDefault,

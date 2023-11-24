@@ -54,6 +54,19 @@ class Location {
               'Localiza-se a vinte quilômetros do Centro da capital do estado, Natal. É um dos mais famosos cartões-postais do estado.')
         ],
       ),
+      Location(
+        5,
+        'Pirangi',
+        'assets/images/pirangi.jpg',
+        [
+          LocationFact('Summary',
+              'Praia de Pirangi ou Pirangi é uma praia no litoral do Rio Grande do Norte, dividida pelo Pirangi em Pirangi do Norte e Pirangi do Sul. A praia "do norte" está localizada no município de Parnamirim, e a "do sul" no município de Nísia Floresta.'),
+          LocationFact('Pirangi do Norte',
+              'Pirangi do Norte é a mais procurada pelos natalenses no verão especialmente em sua maioria pela grande massa de adolescentes e jovens de classe média alta que ali passam o chamado veraneio. É a que tem mais infra-estrutura em relação a Pirangi do Sul e é a mais badalada já que nela se encontram bares e a casa de shows mais famosa no estado, o Vila Folia/Circo da Folia onde grandes bandas de axé, forró e rock se apresentam. É nesta praia que se localiza o maior cajueiro do mundo, por isso, recebe uma grande gama de turistas.'),
+          LocationFact('Pirangi do Sul',
+              'Pirangi do Sul também é conhecida como Pirambúzios (por ser vizinha a Praia de Búzios) e é o oposto de Pirangi do Norte, sendo uma praia calma, com ondas fracas, cercada por recifes e menos urbanizada. Na maré baixa, os bancos de corais formam ilhas e piscinas naturais a um quilômetro mar a dentro (os Parrachos de Pirangi), proporcionando um espetáculo maravilhoso da natureza, que é visitado por lanchas particulares e barcos da empresa Marina Badauê, que organiza passeios diários com os turistas. A praia é muito procurada para a prática de esportes náuticos e pesca.'),
+        ],
+      ),
     ];
   }
 
