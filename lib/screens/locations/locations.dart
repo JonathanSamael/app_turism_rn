@@ -20,7 +20,6 @@ class Locations extends StatelessWidget {
               (location) => GestureDetector(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
                       decoration: BoxDecoration(
