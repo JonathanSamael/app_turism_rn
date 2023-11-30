@@ -12,7 +12,7 @@ class ImageBanner extends StatelessWidget {
         height: 250.0,
       ),
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.6),

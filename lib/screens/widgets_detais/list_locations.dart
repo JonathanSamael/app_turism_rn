@@ -21,14 +21,19 @@ class ListLocations extends StatelessWidget {
                         image: DecorationImage(
                             image: AssetImage(location.imagePath),
                             fit: BoxFit.cover),
+                            // borderRadius: const BorderRadius.all(Radius.circular(10))
+                            borderRadius: const BorderRadius.all(Radius.circular(10)),
                       ),
                       height: 200.0,
                       child: Align(
                         alignment: Alignment.bottomLeft,
                         child: Container(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+                            color: Colors.black54
+                          ),
                           width: MediaQuery.of(context).size.width,
                           height: 50.0,
-                          color: Colors.black54,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(

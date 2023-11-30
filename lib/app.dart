@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
 
   ThemeData _theme() {
     return ThemeData(
+      useMaterial3: true,
       appBarTheme: const AppBarTheme(
         titleTextStyle: appBarTextStyle,
       ),
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         titleMedium: titleTextStyle,
         bodyMedium: bodyTextStyle,
       ),
-      useMaterial3: true,
+      navigationBarTheme: navigationBarStyle,
     );
   }
 

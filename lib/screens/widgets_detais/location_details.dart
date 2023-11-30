@@ -13,21 +13,21 @@ class LocationDetais extends StatefulWidget {
 }
 
 class _LocationDetaisState extends State<LocationDetais> {
+  bool isFavorite = true;
+
+  void toggleFavorite() {
+    setState(() {
+      if (isFavorite = !isFavorite) {
+        isFavorite = true;
+      } else {
+        isFavorite = false;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final location = Location.fetchByID(widget._locationID);
-
-    bool isFavorite = true;
-
-    toggleFavorite() {
-      setState(() {
-        if (isFavorite = !isFavorite) {
-          Icons.favorite;
-        } else {
-          Icons.favorite_border;
-        }
-      });
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -39,9 +39,9 @@ class _LocationDetaisState extends State<LocationDetais> {
             child: IconButton(
               onPressed: () {
                 toggleFavorite();
-                //Botão não funciona para fazer a troca ao ser clicado
               },
-              icon: const Icon(Icons.favorite_border),
+              icon: isFavorite ? const Icon(Icons.favorite_border) : const Icon(Icons.favorite),
+              color: const Color(0xFFe63946),
             ),
           ),
         ],
