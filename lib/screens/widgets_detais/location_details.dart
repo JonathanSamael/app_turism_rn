@@ -3,20 +3,31 @@ import 'package:flutter_app/screens/widgets_detais/image_banner.dart';
 import 'package:flutter_app/screens/widgets_detais/text_section.dart';
 import '../../models/location.dart';
 
-class TextDetails extends StatefulWidget {
-  const TextDetails(this._locationID, {super.key});
+class LocationDetais extends StatefulWidget {
+  const LocationDetais(this._locationID, {super.key});
 
   final int _locationID;
 
   @override
-  State<TextDetails> createState() => _TextDetailsState();
+  State<LocationDetais> createState() => _LocationDetaisState();
 }
 
-class _TextDetailsState extends State<TextDetails> {
+class _LocationDetaisState extends State<LocationDetais> {
   @override
   Widget build(BuildContext context) {
     final location = Location.fetchByID(widget._locationID);
-    IconData iconData = Icons.favorite_border;
+
+    bool isFavorite = true;
+
+    toggleFavorite() {
+      setState(() {
+        if (isFavorite = !isFavorite) {
+          Icons.favorite;
+        } else {
+          Icons.favorite_border;
+        }
+      });
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -27,15 +38,10 @@ class _TextDetailsState extends State<TextDetails> {
             padding: const EdgeInsets.only(right: 8.0),
             child: IconButton(
               onPressed: () {
-                setState(
-                  () {
-                    iconData = iconData != Icons.favorite_border
-                        ? Icons.favorite_border
-                        : Icons.favorite;
-                  },
-                );
+                toggleFavorite();
+                //Botão não funciona para fazer a troca ao ser clicado
               },
-              icon: Icon(iconData),
+              icon: const Icon(Icons.favorite_border),
             ),
           ),
         ],

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/locations/locations.dart';
-import 'package:flutter_app/screens/widgets_detais/text_details.dart';
+import 'package:flutter_app/screens/locations/favorite_locations.dart';
+import 'package:flutter_app/screens/locations/home_locations.dart';
+import 'package:flutter_app/screens/widgets_detais/location_details.dart';
 import 'package:flutter_app/style.dart';
 
 const locationsRoute = '/';
 const locationDetailRoute = '/text_detail';
+const locationFavoriteRoute = '/favorite_locations';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -37,11 +39,15 @@ class MyApp extends StatelessWidget {
       Widget screen;
       switch (settings.name) {
         case locationsRoute:
-          screen = const Locations();          
+          screen = const HomeLocations();          
           break;
         case locationDetailRoute:
           final arguments = settings.arguments as Map<String, dynamic>;
-          screen = TextDetails(arguments['id']);
+          screen = LocationDetais(arguments['id']);
+          break;
+        case locationFavoriteRoute:
+          // final arguments = settings.arguments as Map<String, dynamic>;
+          screen = const FavoritePage();
           break;
         default:
           return null;

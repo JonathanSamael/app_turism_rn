@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app.dart';
-import '../../models/location.dart';
+import 'package:flutter_app/models/location.dart';
 
-class Locations extends StatelessWidget {
-  const Locations({super.key});
+class ListLocations extends StatelessWidget {
+  const ListLocations({super.key});
 
   @override
   Widget build(BuildContext context) {
     final locations = Location.fetchAll();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Praias do RN'),
-        centerTitle: true,
-      ),
-      body: ListView(
+    return ListView(
         children: locations
             .map(
               (location) => GestureDetector(
@@ -44,15 +39,16 @@ class Locations extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10.0,),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
                   ],
                 ),
                 onTap: () => _onLocationTap(context, location.id),
               ),
             )
             .toList(),
-      ),
-    );
+      );
   }
 
   _onLocationTap(BuildContext context, int locationID) {

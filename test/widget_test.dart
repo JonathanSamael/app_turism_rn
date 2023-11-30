@@ -6,25 +6,24 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app.dart';
+import 'package:flutter_app/screens/widgets_detais/location_details.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Mudança de Icon', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const LocationDetais(0));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.byWidget(IconButton as Widget), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.tap(find.byIcon(IconButton as IconData));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.byIcon(Icons.favorite), findsNothing);
+
+    await tester.tap(find.byIcon(IconButton as IconData));
+    await tester.pump();
+
+    expect(find.byIcon(Icons.favorite_border), findsNothing);
   });
 }
