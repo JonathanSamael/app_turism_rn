@@ -6,24 +6,26 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/widgets_detais/location_details.dart';
+// import 'package:flutter_app/screens/widgets_detais/location_details.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Mudança de Icon', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const LocationDetais(0));
-
-    expect(find.byWidget(IconButton as Widget), findsOneWidget);
-
-    await tester.tap(find.byIcon(IconButton as IconData));
-    await tester.pump();
-
+  testWidgets('Generate list', (WidgetTester tester) async {
+    // TEST WITH BUG, DON'T FIND THE WIDGET;
+    await tester.pumpWidget(const Scaffold());
+    expect(find.byIcon(Icons.favorite_border), findsOneWidget);
     expect(find.byIcon(Icons.favorite), findsNothing);
 
-    await tester.tap(find.byIcon(IconButton as IconData));
+    await tester.tap(find.byIcon(Icons.favorite_border));
     await tester.pump();
 
     expect(find.byIcon(Icons.favorite_border), findsNothing);
+    expect(find.byIcon(Icons.favorite), findsOneWidget);
+
+    await tester.tap(find.byIcon(Icons.favorite));
+    await tester.pump();
+
+    expect(find.byIcon(Icons.favorite_border), findsOneWidget);
+    expect(find.byIcon(Icons.favorite), findsNothing);
   });
 }

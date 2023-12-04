@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/repositories/favorite_repository.dart';
 import 'package:flutter_app/screens/widgets_detais/image_banner.dart';
 import 'package:flutter_app/screens/widgets_detais/text_section.dart';
+import 'package:provider/provider.dart';
 import '../../models/location.dart';
 
 class LocationDetais extends StatefulWidget {
@@ -14,13 +16,18 @@ class LocationDetais extends StatefulWidget {
 
 class _LocationDetaisState extends State<LocationDetais> {
   bool isFavorite = true;
+  final locationList = Location;
+  List<Location> selected = [];
+  late FavoriteRepository favorite;
 
   void toggleFavorite() {
     setState(() {
       if (isFavorite = !isFavorite) {
         isFavorite = true;
+        favorite.saveAll(selected);
       } else {
         isFavorite = false;
+        // favorite.remove();
       }
     });
   }
@@ -28,6 +35,7 @@ class _LocationDetaisState extends State<LocationDetais> {
   @override
   Widget build(BuildContext context) {
     final location = Location.fetchByID(widget._locationID);
+    favorite = Provider.of<FavoriteRepository>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -40,7 +48,9 @@ class _LocationDetaisState extends State<LocationDetais> {
               onPressed: () {
                 toggleFavorite();
               },
-              icon: isFavorite ? const Icon(Icons.favorite_border) : const Icon(Icons.favorite),
+              icon: isFavorite
+                  ? const Icon(Icons.favorite_border)
+                  : const Icon(Icons.favorite),
               color: const Color(0xFFe63946),
             ),
           ),
@@ -62,6 +72,9 @@ class _LocationDetaisState extends State<LocationDetais> {
                       textAlign: TextAlign.center,
                     ),
                   ),
+                  // if(favorite.list.contains()) {
+
+                  // },
                   const Padding(
                     padding: EdgeInsets.all(
                       8.0,
