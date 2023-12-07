@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/locations/favorite_locations.dart';
 import 'package:flutter_app/screens/locations/home_locations.dart';
-import 'package:flutter_app/screens/widgets_detais/location_details.dart';
 import 'package:flutter_app/style.dart';
 
-const locationsRoute = '/';
-const locationDetailRoute = '/text_detail';
-const locationFavoriteRoute = '/favorite_locations';
+// const locationsRoute = '/';
+// const locationDetailRoute = '/location_detail';
+// const locationFavoriteRoute = '/favorite_locations';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,8 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: _routes(),
+      // onGenerateRoute: _routes(),
       theme: _theme(),
+      home: const HomeLocations(),
     );
   }
 
@@ -35,26 +34,24 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  RouteFactory _routes() {
-    return (settings) {
-      Widget screen;
-      switch (settings.name) {
-        case locationsRoute:
-          screen = const HomeLocations();          
-          break;
-        case locationDetailRoute:
-          final arguments = settings.arguments as Map<String, dynamic>;
-          screen = LocationDetais(arguments['id']);
-          break;
-        case locationFavoriteRoute:
-          // final arguments = settings.arguments as Map<String, dynamic>;
-          screen = const FavoritePage();
-          break;
-        default:
-          return null;
-      }
-      return MaterialPageRoute(builder: (BuildContext context) => screen);
-      // return print(screen);
-    } ;
-  }
+  // RouteFactory _routes() {
+  //   return (settings) {
+  //     Widget screen;
+  //     switch (settings.name) {
+  //       case locationsRoute:
+  //         screen = const HomeLocations();          
+  //         break;
+  //       case locationDetailRoute:
+  //         final arguments = settings.arguments as Map<List, dynamic>;
+  //         screen = LocationDetais(id: arguments);
+  //         break;
+  //       case locationFavoriteRoute:
+  //         screen = const FavoritePage();
+  //         break;
+  //       default:
+  //         return null;
+  //     }
+  //     return MaterialPageRoute(builder: (BuildContext context) => screen);
+  //   } ;
+  // }
 }

@@ -6,17 +6,15 @@ import 'package:provider/provider.dart';
 import '../../models/location.dart';
 
 class LocationDetais extends StatefulWidget {
-  const LocationDetais(this._locationID, {super.key});
-
-  final int _locationID;
-
+  const LocationDetais(this.location, {super.key, required String id});
+  final Location location;
+  
   @override
   State<LocationDetais> createState() => _LocationDetaisState();
 }
 
 class _LocationDetaisState extends State<LocationDetais> {
   bool isFavorite = true;
-  final locationList = Location;
   List<Location> selected = [];
   late FavoriteRepository favorite;
 
@@ -25,6 +23,7 @@ class _LocationDetaisState extends State<LocationDetais> {
       if (isFavorite = !isFavorite) {
         isFavorite = true;
         favorite.saveAll(selected);
+
       } else {
         isFavorite = false;
         // favorite.remove();
@@ -34,12 +33,11 @@ class _LocationDetaisState extends State<LocationDetais> {
 
   @override
   Widget build(BuildContext context) {
-    final location = Location.fetchByID(widget._locationID);
     favorite = Provider.of<FavoriteRepository>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(location!.name),
+        title: Text(widget.location.name),
         centerTitle: true,
         actions: [
           Padding(
@@ -60,21 +58,17 @@ class _LocationDetaisState extends State<LocationDetais> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            ImageBanner(location.imagePath),
+            ImageBanner(widget.location.imagePath),
             Padding(
               padding: const EdgeInsets.all(6.0),
               child: Column(
                 children: [
                   ListTile(
-                    title: Text(
-                      location.name.toUpperCase(),
+                    title: Text(widget.location.name.toUpperCase(),
                       style: Theme.of(context).textTheme.titleMedium,
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  // if(favorite.list.contains()) {
-
-                  // },
                   const Padding(
                     padding: EdgeInsets.all(
                       8.0,
@@ -83,7 +77,7 @@ class _LocationDetaisState extends State<LocationDetais> {
                       color: Colors.black12,
                     ),
                   ),
-                  ...textSections(location),
+                  ...textSections(widget.location),
                 ],
               ),
             ),

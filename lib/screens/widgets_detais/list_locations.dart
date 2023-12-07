@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app.dart';
-import 'package:flutter_app/models/location.dart';
+import 'package:flutter_app/repositories/location_repository.dart';
+import 'package:flutter_app/screens/widgets_detais/location_details.dart';
 
-class ListLocations extends StatelessWidget {
+class ListLocations extends StatefulWidget {
   const ListLocations({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final locations = Location.fetchAll();
+  State<ListLocations> createState() => _ListLocationsState();
+}
 
+class _ListLocationsState extends State<ListLocations> {
+  @override
+  Widget build(BuildContext context) {
+  final locations = LocationRepository.locations;
     return ListView(
         children: locations
             .map(
@@ -20,9 +24,7 @@ class ListLocations extends StatelessWidget {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(location.imagePath),
-                            fit: BoxFit.cover),
-                            // borderRadius: const BorderRadius.all(Radius.circular(10))
-                            borderRadius: const BorderRadius.all(Radius.circular(10)),
+                            fit: BoxFit.cover),                            borderRadius: const BorderRadius.all(Radius.circular(10)),
                       ),
                       height: 200.0,
                       child: Align(
@@ -49,15 +51,16 @@ class ListLocations extends StatelessWidget {
                     ),
                   ],
                 ),
-                onTap: () => _onLocationTap(context, location.id),
+                onTap: () => {
+                  _onTapNavigator(location, location.id)
+                },
               ),
             )
             .toList(),
       );
   }
 
-  _onLocationTap(BuildContext context, int locationID) {
-    Navigator.pushNamed(context, locationDetailRoute,
-        arguments: {'id': locationID});
+  _onTapNavigator(location, String locationID) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => LocationDetais(location, id: locationID)));
   }
 }

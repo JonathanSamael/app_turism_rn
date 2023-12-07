@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_app/app.dart';
 import 'package:flutter_app/screens/locations/favorite_locations.dart';
 import 'package:flutter_app/screens/widgets_detais/list_locations.dart';
 import 'package:flutter_app/style.dart';
