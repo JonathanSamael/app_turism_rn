@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/repositories/favorite_repository.dart';
+import 'package:flutter_app/repositories/location_repository.dart';
 import 'package:flutter_app/screens/widgets_detais/image_banner.dart';
 import 'package:flutter_app/screens/widgets_detais/text_section.dart';
 import 'package:provider/provider.dart';
 import '../../models/location.dart';
 
 class LocationDetais extends StatefulWidget {
-  const LocationDetais(this.location, {super.key, required String id});
+  const LocationDetais(this.location, {super.key, required this.id});
   final Location location;
+  final int id;
   
   @override
   State<LocationDetais> createState() => _LocationDetaisState();
 }
 
 class _LocationDetaisState extends State<LocationDetais> {
-  bool isFavorite = true;
-  List<Location> selected = [];
+  List<Location> selected = LocationRepository.locations;
   late FavoriteRepository favorite;
-
-  void toggleFavorite() {
-    setState(() {
-      if (isFavorite = !isFavorite) {
-        isFavorite = true;
-        favorite.saveAll(selected);
-
-      } else {
-        isFavorite = false;
-        // favorite.remove();
-      }
-    });
-  }
+  bool isFavorite = true;
 
   @override
   Widget build(BuildContext context) {
     favorite = Provider.of<FavoriteRepository>(context);
+    void toggleFavorite() {
+    setState(() {
+      if (isFavorite = !isFavorite) {
+        isFavorite = true;
+        favorite.saveAll(selected);
+      } else {
+        isFavorite = false;
+        // favorite.remove();
+      }
+      print(selected);
+    });
+  }
 
     return Scaffold(
       appBar: AppBar(
@@ -92,4 +93,5 @@ class _LocationDetaisState extends State<LocationDetais> {
         .map((fact) => TextSection(fact.title, fact.text))
         .toList();
   }
+  
 }

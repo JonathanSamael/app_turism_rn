@@ -5,7 +5,7 @@ class LocationRepository {
 
  static List<Location> locations = [
       Location(
-        id: '1',
+        id: 1,
         name: 'Ponta negra',
         imagePath: 'assets/images/morro.jpg',
         facts: [
@@ -16,7 +16,7 @@ class LocationRepository {
         ],
       ),
       Location(
-        id: '2',
+        id: 2,
         name: 'Pipa',
         imagePath: 'assets/images/pipa_sunset.jpg',
         facts: [
@@ -27,7 +27,7 @@ class LocationRepository {
         ],
       ),
       Location(
-        id: '3',
+        id: 3,
         name: 'Praia do forte',
         imagePath: 'assets/images/forte.jpg',
         facts: [
@@ -38,7 +38,7 @@ class LocationRepository {
         ],
       ),
       Location(
-        id: '4',
+        id: 4,
         name: 'Genipabu',
         imagePath: 'assets/images/genipabu.jpg',
         facts: [
@@ -49,7 +49,7 @@ class LocationRepository {
         ],
       ),
       Location(
-        id: '5',
+        id: 5,
         name: 'Pirangi',
         imagePath: 'assets/images/pirangi.jpg',
         facts: [

@@ -12,6 +12,8 @@ class FavoriteRepository extends ChangeNotifier {
     for (var location in locations) {
       if (!_favorites.contains(location)) _favorites.add(location);
     }
+    print(locations);
+    print('1');
     notifyListeners();
   }
 
